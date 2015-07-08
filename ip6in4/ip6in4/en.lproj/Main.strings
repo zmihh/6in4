@@ -1,0 +1,60 @@
+
+/* Class = "IBUILabel"; text = "Loading"; ObjectID = "0gx-lV-YN9"; */
+"0gx-lV-YN9.text" = "Loading";
+
+/* Class = "IBUITableViewSection"; headerTitle = "其他"; ObjectID = "4vh-Lj-ane"; */
+"4vh-Lj-ane.headerTitle" = "Others";
+
+/* Class = "IBUINavigationItem"; title = "IPv6资源"; ObjectID = "CAv-9J-aFp"; */
+"CAv-9J-aFp.title" = "IPv6 Sites";
+
+/* Class = "IBUILabel"; text = "当前版本1.0.1"; ObjectID = "HQT-k9-RG2"; */
+"HQT-k9-RG2.text" = "current version 1.0.1";
+
+/* Class = "IBUILabel"; text = "正在加载"; ObjectID = "IOk-fj-KE0"; */
+"IOk-fj-KE0.text" = "Loading";
+
+/* Class = "IBUILabel"; text = "版本更新"; ObjectID = "Nng-0I-8Lg"; */
+"Nng-0I-8Lg.text" = "update";
+
+/* Class = "IBUILabel"; text = "分享给好友"; ObjectID = "PDA-KS-W5m"; */
+"PDA-KS-W5m.text" = "Share with Friends";
+
+/* Class = "IBUILabel"; text = "from QQ"; ObjectID = "QCq-ce-Ecs"; */
+"QCq-ce-Ecs.text" = "from QQ";
+
+/* Class = "IBUIViewController"; title = "使用教程"; ObjectID = "ZKA-qx-0FO"; */
+"ZKA-qx-0FO.title" = "Tutorial";
+
+/* Class = "IBUILabel"; text = "皮皮虾泡泡"; ObjectID = "eSn-MO-Yg7"; */
+"eSn-MO-Yg7.text" = "皮皮虾泡泡";
+
+/* Class = "IBUITableViewSection"; headerTitle = "账号"; ObjectID = "kcp-JI-B6Q"; */
+"kcp-JI-B6Q.headerTitle" = "Account";
+
+/* Class = "IBUILabel"; text = "意见反馈"; ObjectID = "keL-Bc-HSK"; */
+"keL-Bc-HSK.text" = "Feedback";
+
+/* Class = "IBUILabel"; text = "点击查看详细使用教程"; ObjectID = "ki7-k7-pkw"; */
+"ki7-k7-pkw.text" = "Click here to see detail tutorial";
+
+/* Class = "IBUITabBarItem"; title = "设置"; ObjectID = "kz8-Fw-VBs"; */
+"kz8-Fw-VBs.title" = "Settings";
+
+/* Class = "IBUITableViewSection"; headerTitle = "VPN"; ObjectID = "lL5-LY-mUo"; */
+"lL5-LY-mUo.headerTitle" = "VPN";
+
+/* Class = "IBUINavigationItem"; title = "设置"; ObjectID = "lhV-05-dxD"; */
+"lhV-05-dxD.title" = "Settings";
+
+/* Class = "IBUILabel"; text = "使用教程"; ObjectID = "pjd-p2-CQg"; */
+"pjd-p2-CQg.text" = "Tutorial";
+
+/* Class = "IBUILabel"; text = "导入配置文件到OpenVPN"; ObjectID = "pkW-Z8-op4"; */
+"pkW-Z8-op4.text" = "Import Configure File to OpenVPN";
+
+/* Class = "IBUIBarButtonItem"; title = "刷新"; ObjectID = "qcM-am-lLr"; */
+"qcM-am-lLr.title" = "Refresh";
+
+/* Class = "IBUITabBarItem"; title = "资源"; ObjectID = "z75-z6-FRc"; */
+"z75-z6-FRc.title" = "IPv6 Sites";

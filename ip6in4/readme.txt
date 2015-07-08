@@ -1,0 +1,1 @@
+导入ip6in4.xworkspace到xcode就可以
