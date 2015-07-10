@@ -87,6 +87,17 @@
 
 -(void)buttonClick{
     NSLog(@"save");
+    [self accountAuthentication];
+    
+}
+
+-(void)accountAuthentication{
+    //用户名不存在
+    //用户名与密码不匹配
+    //匹配
+    if (self) {
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
     
 }
 

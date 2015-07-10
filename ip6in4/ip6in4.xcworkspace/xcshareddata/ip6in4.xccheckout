@@ -10,31 +10,31 @@
 	<string>ip6in4</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>96BC6C76CCCCDC7D51B49F66C287605959DE3DC2</key>
-		<string>https://github.com/ppxpp/6in4-iOS.git</string>
+		<key>3F003921F5CBF6709208DB295CF851F56F124FC7</key>
+		<string>https://github.com/zmihh/6in4.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ip6in4.xcworkspace</string>
+	<string>ip6in4/ip6in4.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>96BC6C76CCCCDC7D51B49F66C287605959DE3DC2</key>
-		<string>..</string>
+		<key>3F003921F5CBF6709208DB295CF851F56F124FC7</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/ppxpp/6in4-iOS.git</string>
+	<string>https://github.com/zmihh/6in4.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>96BC6C76CCCCDC7D51B49F66C287605959DE3DC2</string>
+	<string>3F003921F5CBF6709208DB295CF851F56F124FC7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>96BC6C76CCCCDC7D51B49F66C287605959DE3DC2</string>
+			<string>3F003921F5CBF6709208DB295CF851F56F124FC7</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ip6in4</string>
+			<string>6in4-iOS</string>
 		</dict>
 	</array>
 </dict>

@@ -8,6 +8,13 @@
 
 #import "RegisterController.h"
 
+@interface RegisterController()
+    
+@property(nonatomic,strong)UITextField *email;
+@property(nonatomic,strong)UITextField *pwd;
+
+@end
+
 @implementation RegisterController
 
 -(void)viewDidLoad{
@@ -36,26 +43,26 @@
     //邮箱
     UILabel *emailLabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 10, 280, 40)];
     [emailLabel setText:@"电子邮箱"];
-    emailLabel.highlighted=YES;
+     emailLabel.highlighted=YES;
     [emailLabel setHighlightedTextColor:[UIColor blackColor]];
     [emailLabel setFont:font];
     [emailLabel setBackgroundColor:[UIColor clearColor]];
     [emailLabel setTextColor:[UIColor blackColor]];
     [view1 addSubview:emailLabel];
     
-    UITextField *email=[[UITextField alloc]initWithFrame:CGRectMake(padx, 10, 200, 40)] ;
-    [email setBackgroundColor:[UIColor clearColor]];
-    [email setKeyboardType:UIKeyboardTypeEmailAddress];
-    [email setTextColor:[UIColor grayColor]];
-    [email setTag:101];
-    [email setReturnKeyType:UIReturnKeyNext];
-    [email setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-    [email setAutocorrectionType:UITextAutocorrectionTypeNo];
-    [email setFont:[UIFont systemFontOfSize:17]];
-    [email setPlaceholder:@"devdiy@example.com"];
-    [email setText:@""];
-    [email setHighlighted:YES];
-    [view1 addSubview:email];
+    _email=[[UITextField alloc]initWithFrame:CGRectMake(padx, 10, 200, 40)] ;
+    [_email setBackgroundColor:[UIColor clearColor]];
+    [_email setKeyboardType:UIKeyboardTypeEmailAddress];
+    [_email setTextColor:[UIColor grayColor]];
+    [_email setTag:101];
+    [_email setReturnKeyType:UIReturnKeyNext];
+    [_email setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+    [_email setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [_email setFont:[UIFont systemFontOfSize:17]];
+    [_email setPlaceholder:@"devdiy@example.com"];
+   // [_email setText:@""];
+    [_email setHighlighted:YES];
+    [view1 addSubview:_email];
     
     
     //密码
@@ -68,26 +75,66 @@
     [pwdLabel setTextColor:[UIColor blackColor]];
     [view1 addSubview:pwdLabel];
     
-    UITextField *pwd=[[UITextField alloc]initWithFrame:CGRectMake(padx, 53, 200, 40)] ;
-    [pwd setBackgroundColor:[UIColor clearColor]];
-    [pwd setKeyboardType:UIKeyboardTypeDefault];
-    [pwd setTextColor:[UIColor grayColor]];
-    [pwd setTag:102];
-    [pwd setReturnKeyType:UIReturnKeyDone];
-    [pwd setSecureTextEntry:YES];
-    [pwd setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-    [pwd setAutocorrectionType:UITextAutocorrectionTypeNo];
-    [pwd setFont:font];
-    [pwd setText:@""];
-    [pwd setHighlighted:YES];
-    [view1 addSubview:pwd];
-    
+     _pwd=[[UITextField alloc]initWithFrame:CGRectMake(padx, 53, 200, 40)] ;
+    [_pwd setBackgroundColor:[UIColor clearColor]];
+    [_pwd setKeyboardType:UIKeyboardTypeDefault];
+    [_pwd setTextColor:[UIColor grayColor]];
+    [_pwd setTag:102];
+    [_pwd setReturnKeyType:UIReturnKeyDone];
+    [_pwd setSecureTextEntry:YES];
+    [_pwd setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+    [_pwd setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [_pwd setFont:font];
+    //[_pwd setText:@""];
+    [_pwd setHighlighted:YES];
+    [view1 addSubview:_pwd];
 
     
 }
 
 -(void)buttonClick{
-    NSLog(@"save");
+    if ((_email.text.length!=0)&&(_pwd.text.length!=0) ) {
+    
+        if(![self NSStringIsValidEmail:_email.text]){
+       // NSString *title=@"InValid email";
+            UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:nil message:@"invalid email" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            alertView.alertViewStyle=UIAlertActionStyleDefault;
+            [alertView show];
+        }
+        else{
+       // NSDictionary* default=[[NSUserDefaults standardUserDefaults]dictionaryRepresentation];
+        //NSLog(@"%@",default);
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults] ;
+            NSString* userName=self.email.text;
+            NSString* passWord=self.pwd.text;
+            [defaults setObject:userName forKey:@"username"];
+            [defaults setObject:passWord forKey:@"passward"];
+            NSLog(@"save");
+            [self.navigationController popViewControllerAnimated:YES];
+        
+       // NSLog(@"Defaults: %@", defaults);
+
+        
+        }
+    }
+    else{
+        //NSLog(@"%ld",_email.text.length);
+        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:nil message:@"input could not be empty" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        alertView.alertViewStyle=UIAlertActionStyleDefault;
+        [alertView show];
+    }
     
 }
+-(BOOL) NSStringIsValidEmail:(NSString *)email
+
+{
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
+    
+    return [emailTest evaluateWithObject:email];
+}
+
+
 @end
