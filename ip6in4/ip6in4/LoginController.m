@@ -10,11 +10,12 @@
 
 @implementation LoginController
 -(void)viewDidLoad{
+    [super viewDidLoad];
     UIBarButtonItem *navFinish=[[UIBarButtonItem alloc]initWithTitle:@"登录" style:UIBarButtonItemStyleDone target:self action:@selector(buttonClick)];
     self.navigationItem.rightBarButtonItem=navFinish;
     [self.navigationItem setTitle:@"登录"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self loginView];
+    //[self loginView];
 }
 
 -(void)loginView{
@@ -34,7 +35,7 @@
     [view1 addSubview:lineOne];
     //邮箱
     UILabel *emailLabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 10, 280, 40)];
-    [emailLabel setText:@"电子邮箱"];
+    [emailLabel setText:@"邮箱"];
     emailLabel.highlighted=YES;
     [emailLabel setHighlightedTextColor:[UIColor blackColor]];
     [emailLabel setFont:font];
@@ -42,8 +43,9 @@
     [emailLabel setTextColor:[UIColor blackColor]];
     [view1 addSubview:emailLabel];
     
-    UITextField *email=[[UITextField alloc]initWithFrame:CGRectMake(padx, 10, 200, 40)] ;
-    [email setBackgroundColor:[UIColor clearColor]];
+    UITextField *email=[[UITextField alloc]initWithFrame:CGRectMake(60, 10, 200, 40)] ;
+    //[email setBackgroundColor:[UIColor clearColor]];
+    [email setBackgroundColor:[UIColor redColor]];
     [email setKeyboardType:UIKeyboardTypeEmailAddress];
     [email setTextColor:[UIColor grayColor]];
     [email setTag:101];

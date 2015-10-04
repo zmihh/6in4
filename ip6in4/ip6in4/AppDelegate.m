@@ -59,7 +59,7 @@
     //连接邮件
     [ShareSDK connectMail];
     
-    [ShareSDK ssoEnabled:NO];
+    [ShareSDK ssoEnabled:YES];
     
     return YES;
 }

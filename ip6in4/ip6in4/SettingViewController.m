@@ -11,9 +11,7 @@
 #import "RegisterController.h"
 #import "LoginController.h"
 
-#define PLATFORM_QQ @"qq_platform"
-#define PLATFORM_SINA_WEIBO @"sina_weibo_platform"
-#define PLATFORM_Email @"email_platform"
+
 
 #define ALERT_TAG_FOR_LOGIN 34
 #define ALERT_TAG_FOR_UPDATE    28
@@ -34,8 +32,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self updateLoginInfo];
     [MobClick checkUpdateWithDelegate:self selector:@selector(updateVersionInfo:)];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear");
+    [self updateLoginInfo];
 }
 
 
@@ -43,7 +46,13 @@
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
     NSString *platform = [defaults objectForKey:@"platform"];
     if (platform != nil
-        && (([platform isEqualToString:PLATFORM_QQ] && [ShareSDK hasAuthorizedWithType:ShareTypeQQSpace]) || ([platform isEqualToString:PLATFORM_SINA_WEIBO] && [ShareSDK hasAuthorizedWithType:ShareTypeSinaWeibo]))) {
+            &&
+            (
+                ([platform isEqualToString:PLATFORM_QQ] && [ShareSDK hasAuthorizedWithType:ShareTypeQQSpace])
+                || ([platform isEqualToString:PLATFORM_SINA_WEIBO] && [ShareSDK hasAuthorizedWithType:ShareTypeSinaWeibo])
+                || [platform isEqualToString:PLATFORM_Email]
+            )
+        ) {
         //already login
         NSString* logoutTitle = NSLocalizedStringFromTable(@"logout_title", @"SettingViewController", nil);
         NSString* cancelLogout = NSLocalizedStringFromTable(@"cancel_logout", @"SettingViewController", nil);
@@ -60,13 +69,13 @@
         NSString *qq = NSLocalizedStringFromTable(@"qq", @"SettingViewController", nil);
         NSString *sinaweibo = NSLocalizedStringFromTable(@"sinaweibo", @"SettingViewController", nil);
         NSString *email=NSLocalizedStringFromTable(@"Email",@"SettingViewController",nil);
-        NSString *emailRegister=NSLocalizedStringFromTable(@"Register Account",@"SettingViewController",nil);
+        NSString *emailRegister=NSLocalizedStringFromTable(@"注册账号",@"SettingViewController",nil);
         UIActionSheet* mySheet = [[UIActionSheet alloc]
                                   initWithTitle:title
                                   delegate:self
                                   cancelButtonTitle:cancel
-                                  destructiveButtonTitle:nil
-                                  otherButtonTitles:qq, sinaweibo,email,emailRegister, nil];
+                                  destructiveButtonTitle:emailRegister
+                                  otherButtonTitles:qq, sinaweibo,email, nil];
         [mySheet showInView:self.view];
     }
 }
@@ -75,7 +84,8 @@
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
     NSString *platform = [defaults objectForKey:@"platform"];
     if (platform != nil
-        && (([platform isEqualToString:PLATFORM_QQ] && [ShareSDK hasAuthorizedWithType:ShareTypeQQSpace]) || ([platform isEqualToString:PLATFORM_SINA_WEIBO] && [ShareSDK hasAuthorizedWithType:ShareTypeSinaWeibo]))) {
+        && (([platform isEqualToString:PLATFORM_QQ] && [ShareSDK hasAuthorizedWithType:ShareTypeQQSpace]) || ([platform isEqualToString:PLATFORM_SINA_WEIBO] && [ShareSDK hasAuthorizedWithType:ShareTypeSinaWeibo])
+            || [platform isEqualToString:PLATFORM_Email])) {
         //already login
         NSString* nickname = [defaults objectForKey:@"nickname"];
         [self.userName setText:nickname];
@@ -127,27 +137,34 @@
 }
 
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0) {
+    if(buttonIndex == 0){
+        //register
+        //RegisterController *reController=[[RegisterController alloc]init];
+        //[self.navigationController pushViewController:reController animated:YES];
+        LoginViewController *vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+        [vc setMode:2];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (buttonIndex == 1) {
         //qq login
         [self dologin:ShareTypeQQSpace];
-    }else if (buttonIndex == 1){
+    }else if (buttonIndex == 2){
         //sina weibo login
         [self dologin:ShareTypeSinaWeibo];
-    }
-    else if(buttonIndex == 2){
+    }else if(buttonIndex == 3){
        // [self ]
-        LoginController *loginController=[[LoginController alloc]init];
-        [self.navigationController pushViewController:loginController animated:YES];
+        LoginViewController *vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+        [vc setMode:1];
         
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        //LoginController *loginController=[[LoginController alloc]init];
+        //[self.navigationController pushViewController:loginController animated:YES];
         
-    }
-    else if(buttonIndex == 3){
-       
-         RegisterController *reController=[[RegisterController alloc]init];
-        [self.navigationController pushViewController:reController animated:YES];
     }
     
 }
+
 
 -(void)dologin:(ShareType)type{
     [ShareSDK
@@ -368,22 +385,25 @@
 
 -(void)doImport{
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    NSLog(@"default = %@",defaults);
     NSString *platform = [defaults objectForKey:@"platform"];
     if (platform != nil
-        && (([platform isEqualToString:PLATFORM_QQ] && [ShareSDK hasAuthorizedWithType:ShareTypeQQSpace]) || ([platform isEqualToString:PLATFORM_SINA_WEIBO] && [ShareSDK hasAuthorizedWithType:ShareTypeSinaWeibo]))) {
+        && (([platform isEqualToString:PLATFORM_QQ] && [ShareSDK hasAuthorizedWithType:ShareTypeQQSpace]) || ([platform isEqualToString:PLATFORM_SINA_WEIBO] && [ShareSDK hasAuthorizedWithType:ShareTypeSinaWeibo])
+            || [platform isEqualToString:PLATFORM_Email])) {
         
         //delete old ovpn file
         NSString *config_file = @"6in4.ovpn";
         [self deleteFileWithName:config_file];
         //create new file
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"6in4" ofType:@"ovpn"];
-        //NSString *content = [NSString stringWithContentsOfFile:filePath];
+            
         NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+        //NSLog(@"before content = %@", content);
         content = [content stringByReplacingOccurrencesOfString:@"{server_ip}" withString:[defaults objectForKey:@"vpn_ip"]];
-        content = [content stringByReplacingOccurrencesOfString:@"{server_port}" withString:[defaults objectForKey:@"vpn_port"]];
+        content = [content stringByReplacingOccurrencesOfString:@"{server_port}" withString:[NSString stringWithFormat:@"%@",[defaults objectForKey:@"vpn_port"]]];
         content = [content stringByReplacingOccurrencesOfString:@"{user_name}" withString:[defaults objectForKey:@"username"]];
         content = [content stringByReplacingOccurrencesOfString:@"{user_password}" withString:[defaults objectForKey:@"password"]];
-        NSLog(@"content is %@",content);
+        //NSLog(@"content is %@",content);
         
         //save new file to local storage
         filePath = [self createFileWithName:config_file content:content];

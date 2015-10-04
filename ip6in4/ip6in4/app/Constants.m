@@ -19,6 +19,29 @@ NSString* APPIPv6ResUrl(){
     return url;
 }
 
+
+NSString * const AccountRegisterUrlKey = @"url_account_register";
+NSString * const AccountRegisterUrlDefault = @"http://www.6able.com/account/register";
+
+NSString* APPAccountRegisterUrl(){
+    NSString *url = [MobClick getConfigParams:AccountRegisterUrlKey];
+    if (url == nil) {
+        url = AccountRegisterUrlDefault;
+    }
+    return url;
+}
+
+NSString * const AccountLoginUrlKey = @"url_account_login";
+NSString * const AccountLoginUrlDefault = @"http://www.6able.com/account/login";
+
+NSString* APPAccountLoginUrl(){
+    NSString *url = [MobClick getConfigParams:AccountLoginUrlKey];
+    if (url == nil) {
+        url = AccountLoginUrlDefault;
+    }
+    return url;
+}
+
 NSString * const AccountCheckUrlKey = @"url_account_check";
 NSString * const AccountCheckUrlDefault = @"http://www.6able.com/account/checkiOS";
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		385F6E641BBA462800952861 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385F6E621BBA462800952861 /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
+		385F6E651BBA462800952861 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385F6E631BBA462800952861 /* LoginViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		38C487EE1B4AA1BC000D4CE1 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C487ED1B4AA1BC000D4CE1 /* RegisterController.m */; };
 		38C487F11B4ACA49000D4CE1 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C487F01B4ACA49000D4CE1 /* LoginController.m */; };
 		66212DE71A19921A000C4063 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66212DE61A19921A000C4063 /* main.m */; };
@@ -87,6 +89,9 @@
 
 /* Begin PBXFileReference section */
 		35AB771F909C09BEB2BA4E31 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		385F6E611BBA462800952861 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		385F6E621BBA462800952861 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		385F6E631BBA462800952861 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		38C487EC1B4AA1BC000D4CE1 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		38C487ED1B4AA1BC000D4CE1 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		38C487EF1B4ACA49000D4CE1 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
@@ -288,6 +293,9 @@
 				38C487EF1B4ACA49000D4CE1 /* LoginController.h */,
 				38C487F01B4ACA49000D4CE1 /* LoginController.m */,
 				665428D41A3023FC00637356 /* SettingViewController.strings */,
+				385F6E611BBA462800952861 /* LoginViewController.h */,
+				385F6E621BBA462800952861 /* LoginViewController.m */,
+				385F6E631BBA462800952861 /* LoginViewController.xib */,
 			);
 			path = ip6in4;
 			sourceTree = "<group>";
@@ -561,7 +569,7 @@
 				TargetAttributes = {
 					66212DE01A19921A000C4063 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 56Y3GHU7A4;
+						DevelopmentTeam = 643953J368;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 0;
@@ -612,6 +620,7 @@
 				66212DF31A19921A000C4063 /* Main.storyboard in Resources */,
 				66212DF81A19921A000C4063 /* LaunchScreen.xib in Resources */,
 				665428D21A3023FC00637356 /* SettingViewController.strings in Resources */,
+				385F6E651BBA462800952861 /* LoginViewController.xib in Resources */,
 				6678EC0D1A284A6400D41AFA /* ShareSDKFlatShareViewUI.bundle in Resources */,
 				66212E2D1A256331000C4063 /* UMFeedbackLocalizable.strings in Resources */,
 				66212DF51A19921A000C4063 /* Images.xcassets in Resources */,
@@ -681,6 +690,7 @@
 				66212DE71A19921A000C4063 /* main.m in Sources */,
 				66FC77301A2E01B600D23E7C /* TutorialViewController.m in Sources */,
 				66212E111A19BB84000C4063 /* ResourceViewController.m in Sources */,
+				385F6E641BBA462800952861 /* LoginViewController.m in Sources */,
 				38C487EE1B4AA1BC000D4CE1 /* RegisterController.m in Sources */,
 				66212E1B1A19EB34000C4063 /* Constants.m in Sources */,
 				66212E261A2470EF000C4063 /* SettingViewController.m in Sources */,
@@ -856,6 +866,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ip6in4/umeng_ios_social_sdk_4.2_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -900,6 +911,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ip6in4/umeng_ios_social_sdk_4.2_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",

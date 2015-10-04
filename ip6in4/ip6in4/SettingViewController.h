@@ -11,6 +11,7 @@
 #import "UIView+Toast.h"
 #import "ShareSDK/ShareSDK.h"
 #import "Constants.h"
+#import "LoginViewController.h"
 
 @interface SettingViewController : UITableViewController<UIActionSheetDelegate, UIAlertViewDelegate,UIDocumentInteractionControllerDelegate>
 
@@ -20,6 +21,12 @@
 @property IBOutlet UILabel* userPlatform;
 @property IBOutlet UILabel* versionTitle;
 @property IBOutlet UILabel* versionDetail;
+
+
+
+typedef void(^MGetUserInfoEventHandler) (BOOL result, id<ISSPlatformUser> userInfo, id<ICMErrorInfo> erro);
++ (void)getUserInfoWithType:(NSInteger)type result:(MGetUserInfoEventHandler)result;
+
 
 //-(IBAction)installOpenVPN:(UITapGestureRecognizer*)sender;
 -(IBAction)importConfig:(UITapGestureRecognizer*)sender;
